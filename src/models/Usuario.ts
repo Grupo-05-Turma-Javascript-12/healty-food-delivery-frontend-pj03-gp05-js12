@@ -1,4 +1,4 @@
-import type Produtos from "./Produtos";
+import type Produtos from "./Produto";
 
 export default interface Usuario {
   id: number;
@@ -7,5 +7,5 @@ export default interface Usuario {
   senha: string;
   foto: string;
   dataCadastro: string;
-  produtos?: Produtos[] | null; 
+  produtos?: Produtos[] | null;
 }
