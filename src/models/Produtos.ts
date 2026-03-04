@@ -1,4 +1,5 @@
 import type Categoria from "./Categoria";
+import type Usuario from "./Usuario"
 
 
 export default interface Produto {
@@ -8,5 +9,5 @@ export default interface Produto {
   preco: number;
   em_estoque: number;
   categoria: Categoria[] | null;
-  usuario: number;
+  usuario: Usuario | null;
 }
