@@ -1,6 +1,6 @@
-import type Produtos from "./Produto";
+import type Produtos from "./Product";
 
-export default interface Usuario {
+export default interface User {
   id: number;
   nome: string;
   usuario: string;
