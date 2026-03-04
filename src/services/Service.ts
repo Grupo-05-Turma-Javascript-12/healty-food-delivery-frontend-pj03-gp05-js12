@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const api = axios.create({
-    baseURL: "https://healty-food-delivery-backend-pj03-gp05-ws97.onrender.com/"
+  baseURL: "VITE_API_URL",
 });
 
 export const cadastrarUsuario = async (url: string, dados: Object, setDados: Function) => {
