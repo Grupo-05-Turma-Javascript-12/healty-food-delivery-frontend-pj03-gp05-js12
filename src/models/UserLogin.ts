@@ -1,6 +1,6 @@
+import type Usuario from "./Usuario";
 
 
-export default interface UserLogin {
-  usuario: string;
-  senha: string;
+export default interface UsuarioLogin extends Usuario {
+  token: string;
 }
