@@ -1,9 +1,11 @@
 @import "tailwindcss";
 
-* {
-    font-family: "Albert Sans", sans-serif;
-}
+@layer base {
+    * {
+        font-family: "Albert Sans", sans-serif;
+    }
 
-body {
-    background-color: #F9FAFB;
+    body {
+        background-color: #F9FAFB;
+    }
 }
