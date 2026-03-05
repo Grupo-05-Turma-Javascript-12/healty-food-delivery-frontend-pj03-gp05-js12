@@ -7,6 +7,6 @@ export default interface Product {
   descricao: string;
   preco: number;
   em_estoque: boolean;
-  categoria: Categoria[] | null;
+  categoria: Categoria | null;
   usuario: Usuario | null;
 }
