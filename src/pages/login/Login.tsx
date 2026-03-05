@@ -8,16 +8,13 @@ function Login() {
     const navigate = useNavigate();
     const { user, handleLogin, isLoading } = useContext(AuthContext);
 
-    const [userLoginState, setUserLoginState] = useState<UserLogin>({
-        usuario: '',
-        senha: ''
-    } as UserLogin);
+    const [userLoginState, setUserLoginState] = useState<UserLogin>({} as UserLogin);
 
     useEffect(() => {
-        if (user?.token && user.token !== "") {
-            navigate('/home');
+        if (user.token !== "") {
+            navigate('/produtos');
         }
-    }, [user, navigate]);
+    }, [user]);
 
     function atualizarEstado(e: ChangeEvent<HTMLInputElement>) {
         setUserLoginState({

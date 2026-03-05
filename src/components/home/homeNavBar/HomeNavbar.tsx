@@ -6,39 +6,41 @@ function HomeNavbar() {
     <nav className="w-full bg-white py-4 px-6 md:px-24 flex items-center justify-between shadow-sm sticky top-0 z-50">
       <div className="flex items-center gap-2">
         <div className="flex items-center">
-          <img
-            src="/nutribox/logo-horizontal.svg"
-            alt="Logo NutriBox"
-            className="h-7"
-          />
+          <Link to="/">
+            <img
+              src="/nutribox/logo-horizontal.svg"
+              alt="Logo NutriBox"
+              className="h-7"
+            />
+          </Link>
         </div>
       </div>
 
       <div className="hidden md:flex items-center gap-8">
-        <a
-          href="#inicio"
+        <Link
+          to="/"
           className="text-gray-600 text-xl font-medium hover:text-[#64a30d] transition-all"
         >
           Início
-        </a>
-        <a
-          href="#sobre"
+        </Link>
+        <Link
+          to="/"
           className="text-gray-600 text-xl font-medium hover:text-[#64a30d] transition-all"
         >
           A nutribox
-        </a>
-        <a
-          href="#produtos"
+        </Link>
+        <Link
+          to="/"
           className="text-gray-600 text-xl font-medium hover:text-[#64a30d] transition-all"
         >
           Produtos
-        </a>
-        <a
-          href="#axiom"
+        </Link>
+        <Link
+          to="/axiom"
           className="text-gray-600 text-xl font-medium hover:text-[#64a30d] transition-all"
         >
           Axiom
-        </a>
+        </Link>
       </div>
 
       <div>

@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { cards } from "../../constants/Axiom";
+import HomeNavbar from "../../components/home/homeNavBar/HomeNavbar";
 
 interface SobreNosCard {
   name: string;
@@ -31,6 +32,7 @@ export default function Axiom() {
 
   return (
     <section className="bg-white text-slate-800">
+      <HomeNavbar/>
       <div className="bg-[#F7F7F7] py-24 px-6">
         <div className="max-w-6xl mx-auto text-center space-y-6">
           <div className="flex justify-center mb-8">
