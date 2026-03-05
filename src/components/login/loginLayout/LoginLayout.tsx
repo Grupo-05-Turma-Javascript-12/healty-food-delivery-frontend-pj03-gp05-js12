@@ -12,8 +12,7 @@ function LoginLayout() {
   };
 
   return (
-    <div>
-      {getTitle()}
+    <div className="w-full min-h-screen flex flex-col">
       <Outlet />
     </div>
   )
