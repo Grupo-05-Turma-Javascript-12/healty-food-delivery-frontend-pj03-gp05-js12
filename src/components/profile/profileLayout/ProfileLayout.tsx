@@ -1,14 +1,15 @@
+import React from 'react'
 import { Outlet, useLocation } from 'react-router-dom';
 
-function LoginLayout() {
+function ProfileLayout() {
 
   const location = useLocation();
 
   const getTitle = (): string => {
-    if (location.pathname.includes("cadastrar")) {
-      return "Cadastrar Usuário";
+    if (location.pathname.includes("editar")) {
+      return "Editar Perfil";
     }
-    return "Entre na platafora Nutribox";
+    return "Meu Perfil";
   };
 
   return (
@@ -19,4 +20,4 @@ function LoginLayout() {
   )
 }
 
-export default LoginLayout
+export default ProfileLayout
