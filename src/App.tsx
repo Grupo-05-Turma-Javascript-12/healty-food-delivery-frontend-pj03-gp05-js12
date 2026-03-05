@@ -20,7 +20,6 @@ import AsideSection from "./components/asideSection/AsideSection";
 import LoginLayout from "./components/login/loginLayout/LoginLayout";
 import Login from "./pages/login/Login";
 import RegisterForm from "./components/login/registerForm/RegisterForm";
-import LoginForm from "./components/login/loginForm/LoginForm";
 
 function App() {
   return (
@@ -37,7 +36,7 @@ function App() {
               <Route path="/login" element={<LoginLayout />}>
                 <Route index element={<Login />} />
                 <Route path="cadastrar" element={<RegisterForm />}/>
-                <Route path="entrar" element={<LoginForm />} />
+                <Route path="entrar" element={<Login />} />
               </Route>
               <Route path="/categorias" element={<CategoryLayout />}>
                 <Route index element={<Category />} />
