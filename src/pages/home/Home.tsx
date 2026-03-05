@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom'
 import { AuthContext } from '../../contexts/authcontext/AuthContext'
 import { useContext } from 'react'
 import { ToastAlerta } from '../../utils/ToastAlert'
+import HomeProducts from '../../components/home/homeProducts/HomeProducts'
 
 function Home() {
   const navigate = useNavigate()
@@ -22,6 +23,7 @@ function Home() {
       <HomeNavbar />
       <Hero />
       <Solution />
+       <HomeProducts/>
       <Cta />
       <Footer/>
     </>
