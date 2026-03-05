@@ -3,7 +3,6 @@ import { ToastContainer } from "react-toastify";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/home/Home";
 import CategoryLayout from "./components/category/categoryLayout/CategoryLayout";
-import Category from "./pages/category/Category";
 import CategoryForm from "./components/category/categoryForm/CategoryForm";
 import CategoryDelete from "./components/category/categoryDelete/CategoryDelete";
 import ProductLayout from "./components/product/productLayout/ProductLayout";
@@ -21,6 +20,7 @@ import LoginLayout from "./components/login/loginLayout/LoginLayout";
 import Login from "./pages/login/Login";
 import RegisterForm from "./components/login/registerForm/RegisterForm";
 import LoginForm from "./components/login/loginForm/LoginForm";
+import CategoryList from "./pages/category/CategoryList";
 
 function App() {
   return (
@@ -40,7 +40,7 @@ function App() {
                 <Route path="entrar" element={<LoginForm />} />
               </Route>
               <Route path="/categorias" element={<CategoryLayout />}>
-                <Route index element={<Category />} />
+                <Route index element={<CategoryList />} />
                 <Route path="cadastrar" element={<CategoryForm />} />
                 <Route path="editar/:id" element={<CategoryForm />} />
                 <Route path="deletar/:id" element={<CategoryDelete />} />
