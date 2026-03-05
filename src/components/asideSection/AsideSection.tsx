@@ -15,7 +15,7 @@ function AsideSection() {
   if (location.pathname.includes("produtos")) asideComponent = <ProductAside />;
   if (location.pathname.includes("usuario")) asideComponent = <ProfileAside />;
 
-  if (user.token === "" ) {
+  if (user.token !== "") {
     component = (
       <div>
         <h1>Aside Section</h1>
