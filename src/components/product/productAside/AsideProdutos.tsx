@@ -1,4 +1,5 @@
 import { useContext, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { AuthContext } from "../../../contexts/authcontext/AuthContext";
 import type Category from "../../../models/Category";
 import { findItems } from "../../../services/Service";
@@ -63,9 +64,11 @@ function AsideProdutos({
         </div>
       </div>
 
-      <button className="w-full bg-green-600 hover:bg-green-700 transition text-white font-medium py-2.5 rounded-lg">
-        Adicionar Produto
-      </button>
+      <Link to="/produtos/cadastrar">
+        <button className="w-full bg-green-600 hover:bg-green-700 transition text-white font-medium py-2.5 rounded-lg hover:cursor-pointer">
+          Adicionar Produto
+        </button>
+      </Link>
 
       <button
         onClick={limparFiltros}

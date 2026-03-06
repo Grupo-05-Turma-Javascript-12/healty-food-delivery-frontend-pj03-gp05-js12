@@ -8,6 +8,7 @@ import LoginLayout from "./components/login/loginLayout/LoginLayout";
 import RegisterForm from "./components/login/registerForm/RegisterForm";
 import Navbar from "./components/navbar/Navbar";
 import ListarProdutos from "./components/product/listarProdutos/ListarProdutos";
+import ProductForm from "./components/product/productForm/ProductForm";
 import ProfileForm from "./components/profile/profileForm/ProfileForm";
 import ProfileLayout from "./components/profile/profileLayout/ProfileLayout";
 import { AuthProvider } from "./contexts/authcontext/AuthContext";
@@ -42,6 +43,8 @@ function App() {
               </Route>
               <Route path="/produtos" element={<ProdutosLayout />}>
                 <Route index element={<ListarProdutos />} />
+                <Route path="cadastrar" element={<ProductForm />} />
+                <Route path="editar/:id" element={<ProductForm />} />
               </Route>
               <Route path="/usuario" element={<ProfileLayout />}>
                 <Route index element={<Profile />} />

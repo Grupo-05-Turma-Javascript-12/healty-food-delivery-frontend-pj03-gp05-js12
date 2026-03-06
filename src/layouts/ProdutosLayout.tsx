@@ -14,21 +14,23 @@ function ProdutosLayout() {
   >([]);
 
   return (
-    <div className="flex flex-col lg:flex-row gap-8 p-6 lg:p-10 bg-[#f6f7f9] min-h-screen">
-      <AsideProdutos
-        precoBusca={precoBusca}
-        setPrecoBusca={setPrecoBusca}
-        categoriasSelecionadas={categoriasSelecionadas}
-        setCategoriasSelecionadas={setCategoriasSelecionadas}
-      />
-
-      <div className="flex-1">
-        <Outlet
-          context={{
-            precoBusca,
-            categoriasSelecionadas,
-          }}
+    <div className="min-h-screen bg-[radial-gradient(circle_at_top_left,#ffffff_0%,#f8fafc_35%,#eef2f7_100%)]">
+      <div className="flex flex-col gap-8 p-6 lg:flex-row lg:p-10">
+        <AsideProdutos
+          precoBusca={precoBusca}
+          setPrecoBusca={setPrecoBusca}
+          categoriasSelecionadas={categoriasSelecionadas}
+          setCategoriasSelecionadas={setCategoriasSelecionadas}
         />
+
+        <div className="flex-1">
+          <Outlet
+            context={{
+              precoBusca,
+              categoriasSelecionadas,
+            }}
+          />
+        </div>
       </div>
     </div>
   );
