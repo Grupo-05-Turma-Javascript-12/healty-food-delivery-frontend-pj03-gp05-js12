@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const CTA: React.FC = () => {
   return (
@@ -13,9 +14,11 @@ const CTA: React.FC = () => {
         </p>
         
         <div className="pt-6">
-          <button className="bg-[#f97316] hover:bg-[#e66712] px-12 py-4 rounded-full font-bold text-white transition-all shadow-lg text-lg uppercase tracking-wide">
-            Cadastrar-se
-          </button>
+          <Link to='/login/cadastrar'>
+            <button className="bg-[#f97316] hover:bg-[#e66712] px-12 py-4 cursor-pointer rounded-full font-bold text-white transition-all shadow-lg text-lg uppercase tracking-wide">
+              Cadastrar-se
+            </button>
+          </Link>
         </div>
       </div>
     </section>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Hero: React.FC = () => {
   return (
@@ -21,13 +22,17 @@ const Hero: React.FC = () => {
           </p>
 
           <div className="flex flex-wrap gap-4">
-            <button className="bg-[#f97316] hover:bg-[#e66712] px-8 py-3 rounded-md font-bold text-white transition-all shadow-lg text-sm uppercase">
-              Cadastrar-se
-            </button>
+            <Link to='/login/cadastrar'>
+              <button className="bg-[#f97316] hover:bg-[#e66712] px-8 py-3 rounded-md font-bold text-white transition-all shadow-lg text-sm uppercase">
+                Cadastrar-se
+              </button>
+            </Link>
 
-            <button className="bg-white text-[#64a30d] border-2 border-white px-8 py-3 rounded-md font-bold transition-all hover:bg-transparent hover:text-white text-sm uppercase">
-              Entrar
-            </button>
+            <Link to='/login/entrar'>
+              <button className="bg-white text-[#64a30d] border-2 border-white px-8 py-3 rounded-md font-bold transition-all hover:bg-transparent hover:text-white text-sm uppercase">
+                Entrar
+              </button>
+            </Link>
           </div>
         </div>
 

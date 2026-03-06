@@ -24,8 +24,7 @@ function CategoryList() {
     try {
       await findItems("/categorias", setCategories, {
         headers: {
-          Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkBudXRyaWJveC5jb20iLCJpYXQiOjE3NzI3NTQ2MDEsImV4cCI6MTc3Mjc1ODIwMX0.BtM3YbpNN7AlZgyzcTq3sT6EJ7KfY2LzF4dGDWJA4YA",
+          Authorization: token,
         },
       });
     } catch(error: any) {

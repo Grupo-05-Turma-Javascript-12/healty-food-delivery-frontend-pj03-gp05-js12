@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { ClipLoader } from 'react-spinners'
 import type User from '../../../models/User' 
 import { registerUser } from '../../../services/Service' 
+import { ToastAlerta } from '../../../utils/ToastAlert'
 
 function RegisterForm() {
   const navigate = useNavigate()
@@ -38,12 +39,12 @@ function RegisterForm() {
       setIsLoading(true)
       try {
         await registerUser(`/usuarios/cadastrar`, usuario, setUsuario)
-        alert('Usuário cadastrado com sucesso!')
+        ToastAlerta('Usuário cadastrado com sucesso!', 'success')
       } catch (error) {
-        alert('Erro ao cadastrar o Usuário')
+        ToastAlerta('Erro ao cadastrar o Usuário', 'error')
       }
     } else {
-      alert('As senhas não conferem ou são muito curtas (mínimo 8 caracteres).')
+      ToastAlerta('As senhas não conferem ou são muito curtas (mínimo 8 caracteres).', 'warn')
     }
     setIsLoading(false)
   }

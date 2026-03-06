@@ -37,7 +37,7 @@ function App() {
               <Route path="/login" element={<LoginLayout />}>
                 <Route index element={<Login />} />
                 <Route path="cadastrar" element={<RegisterForm />}/>
-                <Route path="entrar" element={<LoginForm />} />
+                <Route path="entrar" element={<Login />} />
               </Route>
               <Route path="/categorias" element={<CategoryLayout />}>
                 <Route index element={<CategoryList />} />
