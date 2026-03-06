@@ -12,6 +12,7 @@ import HomeProducts from '../../components/home/homeProducts/HomeProducts'
 function Home() {
   const navigate = useNavigate()
   const { user } = useContext(AuthContext)
+  
 
   if (user.token !== "") {
     navigate("/produtos")

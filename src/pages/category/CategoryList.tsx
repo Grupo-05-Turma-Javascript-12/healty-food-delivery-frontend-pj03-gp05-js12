@@ -25,7 +25,7 @@ function CategoryList() {
       await findItems("/categorias", setCategories, {
         headers: {
           Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkBudXRyaWJveC5jb20iLCJpYXQiOjE3NzI3NDI2NjcsImV4cCI6MTc3Mjc0NjI2N30.0C2hJsrSFwHf2jvnOymavMfTeRbnRzLw-9cChhTz1mQ",
+            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkBudXRyaWJveC5jb20iLCJpYXQiOjE3NzI3NTQ2MDEsImV4cCI6MTc3Mjc1ODIwMX0.BtM3YbpNN7AlZgyzcTq3sT6EJ7KfY2LzF4dGDWJA4YA",
         },
       });
     } catch(error: any) {
