@@ -94,7 +94,7 @@ function DeleteProductModal({
               type="button"
               onClick={onConfirm}
               disabled={loading}
-              className="inline-flex items-center justify-center rounded-2xl bg-linear-to-r from-red-500 to-orange-500 px-5 py-3 font-semibold text-white shadow-lg shadow-red-200 transition hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-60 hover:cursor-pointer"
+              className="inline-flex items-center justify-center rounded-2xl bg-linear-to-r from-red-500 to-red-800 px-5 py-3 font-semibold text-white shadow-lg shadow-red-200 transition hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-60 hover:cursor-pointer"
             >
               {loading ? "Deletando..." : "Sim, deletar produto"}
             </button>
