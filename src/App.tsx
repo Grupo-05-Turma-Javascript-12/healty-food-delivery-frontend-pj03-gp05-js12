@@ -5,8 +5,6 @@ import Home from "./pages/home/Home";
 import CategoryLayout from "./components/category/categoryLayout/CategoryLayout";
 import CategoryForm from "./components/category/categoryForm/CategoryForm";
 import CategoryDelete from "./components/category/categoryDelete/CategoryDelete";
-import CategoryForm from "./components/category/categoryForm/CategoryForm";
-import CategoryLayout from "./components/category/categoryLayout/CategoryLayout";
 import LoginLayout from "./components/login/loginLayout/LoginLayout";
 import RegisterForm from "./components/login/registerForm/RegisterForm";
 import Navbar from "./components/navbar/Navbar";
@@ -17,12 +15,8 @@ import ProfileLayout from "./components/profile/profileLayout/ProfileLayout";
 import { AuthProvider } from "./contexts/authcontext/AuthContext";
 import ProdutosLayout from "./layouts/ProdutosLayout";
 import Axiom from "./pages/Axiom/Axiom";
-import Category from "./pages/category/Category";
-import Home from "./pages/home/Home";
 import Login from "./pages/login/Login";
 import Profile from "./pages/profile/Profile";
-import RegisterForm from "./components/login/registerForm/RegisterForm";
-import LoginForm from "./components/login/loginForm/LoginForm";
 import CategoryList from "./pages/category/CategoryList";
 
 function App() {
