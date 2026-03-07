@@ -59,8 +59,8 @@ function AsideProdutos({
         />
 
         <div className="text-sm">
-          <p className="font-semibold text-gray-700">NutriBox</p>
-          <p className="text-xs text-gray-400">axiom@nutribox.com</p>
+          <p className="font-semibold text-gray-700">{user.nome}</p>
+          <p className="text-xs text-gray-400">{user.usuario}</p>
         </div>
       </div>
 
