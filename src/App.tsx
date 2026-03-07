@@ -1,6 +1,9 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "./App.css";
+import Home from "./pages/home/Home";
+import CategoryLayout from "./components/category/categoryLayout/CategoryLayout";
+import CategoryForm from "./components/category/categoryForm/CategoryForm";
 import CategoryDelete from "./components/category/categoryDelete/CategoryDelete";
 import CategoryForm from "./components/category/categoryForm/CategoryForm";
 import CategoryLayout from "./components/category/categoryLayout/CategoryLayout";
@@ -18,6 +21,9 @@ import Category from "./pages/category/Category";
 import Home from "./pages/home/Home";
 import Login from "./pages/login/Login";
 import Profile from "./pages/profile/Profile";
+import RegisterForm from "./components/login/registerForm/RegisterForm";
+import LoginForm from "./components/login/loginForm/LoginForm";
+import CategoryList from "./pages/category/CategoryList";
 
 function App() {
   return (
@@ -36,7 +42,7 @@ function App() {
                 <Route path="entrar" element={<Login />} />
               </Route>
               <Route path="/categorias" element={<CategoryLayout />}>
-                <Route index element={<Category />} />
+                <Route index element={<CategoryList />} />
                 <Route path="cadastrar" element={<CategoryForm />} />
                 <Route path="editar/:id" element={<CategoryForm />} />
                 <Route path="deletar/:id" element={<CategoryDelete />} />

@@ -15,9 +15,9 @@ function Navbar() {
     navigate('/')
   }
 
-  if (user.token !== "") {
+  if (user.token == "") {
     component = (
-      <div className="flex mx-35 my-10 items-center justify-between">
+      <div className="flex mx-35 my-10 items-center justify-between md:flex-row sm:flex-col flex-wrap sm:gap-2">
         <div>
           <Link to="/produtos">
             <img
@@ -27,7 +27,7 @@ function Navbar() {
             />
           </Link>
         </div>
-        <div className="flex items-center sm:gap-6 lg:gap-12 text-slate-900">
+        <div className="flex items-center md:flex-row  sm:flex-col sm:gap-4 md:gap-12 text-slate-900 flex-wrap">
           <NavLink
             to="/produtos"
             className={({ isActive }) =>
@@ -65,10 +65,8 @@ function Navbar() {
             <span className="hover:text-amber-600">Perfil</span>
           </NavLink>
         </div>
-        <div className=' bg-amber-500 hover:bg-amber-700 py-1 px-7 rounded-2xl shadow text-slate-50 font-semibold transition-colors'>
-          <button onClick={logout}>
-            Sair
-          </button>
+        <div className=" bg-amber-500 hover:bg-amber-700 py-1 px-7 rounded-2xl shadow text-slate-50 font-semibold transition-colors">
+          <button onClick={logout}>Sair</button>
         </div>
       </div>
     );
