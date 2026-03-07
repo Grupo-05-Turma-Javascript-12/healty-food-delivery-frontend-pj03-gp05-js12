@@ -15,7 +15,7 @@ function Navbar() {
     navigate('/')
   }
 
-  if (user.token == "") {
+  if (user.token !== "") {
     component = (
       <div className="flex mx-35 my-10 items-center justify-between md:flex-row sm:flex-col flex-wrap sm:gap-2">
         <div>

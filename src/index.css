@@ -1,11 +1,37 @@
 @import "tailwindcss";
 
 @layer base {
-    * {
-        font-family: "Albert Sans", sans-serif;
-    }
+  * {
+    font-family: "Albert Sans", sans-serif;
+  }
 
-    body {
-        background-color: #F9FAFB;
-    }
+  body {
+    background-color: #f9fafb;
+  }
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+@keyframes fadeInSoft {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-fade-in-soft {
+  animation: fadeInSoft 0.35s ease;
 }
