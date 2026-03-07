@@ -10,14 +10,23 @@ import RegisterForm from "./components/login/registerForm/RegisterForm";
 import Navbar from "./components/navbar/Navbar";
 import ListarProdutos from "./components/product/listarProdutos/ListarProdutos";
 import ProductForm from "./components/product/productForm/ProductForm";
+import ProductDelete from "./components/product/productDelete/ProductDelete";
+import Axiom from "./pages/Axiom/Axiom";
+//import Profile from "./pages/profile/Profile";
+import ProfileCard from "./components/profile/profileCard/ProfileCard";
+import ProfileLayout from "./components/profile/profileLayout/ProfileLayout";
 import ProfileForm from "./components/profile/profileForm/ProfileForm";
 import ProfileLayout from "./components/profile/profileLayout/ProfileLayout";
 import { AuthProvider } from "./contexts/authcontext/AuthContext";
 import ProdutosLayout from "./layouts/ProdutosLayout";
 import Axiom from "./pages/Axiom/Axiom";
 import Login from "./pages/login/Login";
+import RegisterForm from "./components/login/registerForm/RegisterForm";
+//import LoginForm from "./components/login/loginForm/LoginForm";
 import Profile from "./pages/profile/Profile";
 import CategoryList from "./pages/category/CategoryList";
+
+
 
 function App() {
   return (
@@ -47,7 +56,7 @@ function App() {
                 <Route path="editar/:id" element={<ProductForm />} />
               </Route>
               <Route path="/usuario" element={<ProfileLayout />}>
-                <Route index element={<Profile />} />
+                <Route index element={<ProfileCard />} />
                 <Route path="editar/:id" element={<ProfileForm />} />
               </Route>
               <Route path="/axiom" element={<Axiom />} />
