@@ -1,5 +1,6 @@
 import { Outlet, useLocation } from "react-router-dom";
-import ProfileAside from "../profileAside/ProfileAside";
+import ProfileAside from "../../components/profile/profileAside/ProfileAside";
+
 
 function ProfileLayout() {
 

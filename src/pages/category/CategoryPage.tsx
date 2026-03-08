@@ -7,7 +7,7 @@ import { ToastAlerta } from '../../utils/ToastAlert'
 import { SyncLoader } from "react-spinners";
 import CategoryCard from '../../components/category/categoryCard/CategoryCard'
 
-function CategoryList() {
+function CategoryPage() {
 
   const navigate = useNavigate()
   const [isLoading, setIsLoading] = useState<boolean>(false)
@@ -36,12 +36,12 @@ function CategoryList() {
     }
   }
 
-  /* useEffect(() => {
+  useEffect(() => {
     if (token === "") {
       ToastAlerta("Você precisa estar logado", "warn");
       navigate("/");
     }
-  }, [token]); */
+  }, [token]);
 
   useEffect(() => {
     findCategories();
@@ -65,4 +65,4 @@ function CategoryList() {
   );
 }
 
-export default CategoryList
+export default CategoryPage
