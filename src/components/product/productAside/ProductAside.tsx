@@ -78,7 +78,9 @@ function ProductAside({
       </button>
 
       <div>
-        <h4 className="font-semibold text-slate-700 mb-2">Pesquise por preço</h4>
+        <h4 className="font-semibold text-slate-700 mb-2">
+          Pesquise por preço
+        </h4>
 
         <input
           type="number"

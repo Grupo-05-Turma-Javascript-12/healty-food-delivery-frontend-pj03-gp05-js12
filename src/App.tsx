@@ -4,12 +4,11 @@ import "./App.css";
 import Home from "./pages/home/Home";
 import CategoryLayout from "./layouts/categoryLayout/CategoryLayout";
 import CategoryForm from "./components/category/categoryForm/CategoryForm";
-import CategoryDelete from "./components/category/categoryDelete/CategoryDelete";
-import LoginLayout from "./components/login/loginLayout/LoginLayout";
+import LoginLayout from "./layouts/loginLayout/LoginLayout";
 import RegisterForm from "./components/login/registerForm/RegisterForm";
 import Navbar from "./components/navbar/Navbar";
 import ProductForm from "./components/product/productForm/ProductForm";
-import Axiom from "./pages/Axiom/Axiom";
+import Axiom from "./pages/axiom/Axiom";
 import ProfileForm from "./components/profile/profileForm/ProfileForm";
 import { AuthProvider } from "./contexts/authcontext/AuthContext";
 import Login from "./pages/login/Login";
@@ -39,7 +38,6 @@ function App() {
                 <Route index element={<CategoryPage />} />
                 <Route path="cadastrar" element={<CategoryForm />} />
                 <Route path="editar/:id" element={<CategoryForm />} />
-                <Route path="deletar/:id" element={<CategoryDelete />} />
               </Route>
               <Route path="/produtos" element={<ProductsLayout />}>
                 <Route index element={<ProductPage />} />

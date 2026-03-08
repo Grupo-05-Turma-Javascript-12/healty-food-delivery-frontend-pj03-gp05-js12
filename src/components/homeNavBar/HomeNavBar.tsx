@@ -1,9 +1,9 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
-function HomeNavbar() {
+
+function HomeNavBar() {
   return (
-    <nav className="w-full bg-white py-4 px-6 md:px-24 flex items-center justify-between shadow-sm sticky top-0 z-50">
+    <nav className="flex mx-35 my-10 items-center justify-between md:flex-row sm:flex-col flex-wrap sm:gap-2">
       <div className="flex items-center gap-2">
         <div className="flex items-center">
           <Link to="/">
@@ -24,7 +24,7 @@ function HomeNavbar() {
           Início
         </Link>
         <Link
-          to="/"
+          to="#nutribox"
           className="text-gray-600 text-xl font-medium hover:text-[#64a30d] transition-all"
         >
           A nutribox
@@ -44,8 +44,8 @@ function HomeNavbar() {
       </div>
 
       <div>
-        <Link to='/login/entrar'>
-          <button className="bg-[#f97316] hover:bg-[#e66712] text-white px-12 py-2 rounded-full font-bold text-1xl transition-all shadow-md">
+        <Link to="/login/entrar">
+          <button className="bg-[#f97316] hover:bg-[#e66712] text-white px-12 py-2 rounded-full font-bold text-1xl transition-all shadow-md cursor-pointer">
             Entrar
           </button>
         </Link>
@@ -54,4 +54,4 @@ function HomeNavbar() {
   );
 }
 
-export default HomeNavbar;
+export default HomeNavBar
