@@ -1,9 +1,9 @@
 import React from 'react'
 
-function CategoryDelete() {
+function CategoryDeleteModal() {
   return (
     <div>categoryDelete</div>
   )
 }
 
-export default CategoryDelete
+export default CategoryDeleteModal
