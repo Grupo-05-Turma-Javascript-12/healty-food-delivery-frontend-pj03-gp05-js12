@@ -1,21 +1,23 @@
 import { Package } from "phosphor-react";
 import { useContext, useEffect, useState } from "react";
-import { useOutletContext } from "react-router-dom";
-import { AuthContext } from "../../../contexts/authcontext/AuthContext";
-import type { ProdutosContextType } from "../../../layouts/ProdutosLayout";
-import type Product from "../../../models/Product";
-import { deleteItem, findItems } from "../../../services/Service";
-import DeleteProductModal from "../deleteProductModal/DeleteProductModal";
-import ProductCard from "../product/ProductCard";
+import { useNavigate, useOutletContext } from "react-router-dom";
+import { AuthContext } from "../../contexts/authcontext/AuthContext";
+import type { ProdutosContextType } from "../../layouts/productsLayout/ProductsLayout";
+import type Product from "../../models/Product";
+import { deleteItem, findItems } from "../../services/Service";
+import DeleteProductModal from "../../components/product/deleteProductModal/DeleteProductModal";
+import ProductCard from "../../components/product/productCard/ProductCard";
+import { ToastAlerta } from "../../utils/ToastAlert";
 
-function ListarProdutos() {
+function ProductPage() {
   const { precoBusca, categoriasSelecionadas } =
     useOutletContext<ProdutosContextType>();
 
+  const navigate = useNavigate();
   const [produtos, setProdutos] = useState<Product[]>([]);
   const [modalOpen, setModalOpen] = useState(false);
   const [produtoSelecionado, setProdutoSelecionado] = useState<Product | null>(
-    null
+    null,
   );
   const [loadingDelete, setLoadingDelete] = useState(false);
 
@@ -45,6 +47,13 @@ function ListarProdutos() {
       setLoadingDelete(false);
     }
   }
+
+  useEffect(() => {
+    if (user.token === "") {
+      ToastAlerta("Você precisa estar logado", "warn");
+      navigate("/");
+    }
+  }, [user.token]);
 
   useEffect(() => {
     async function buscarProdutos() {
@@ -77,27 +86,10 @@ function ListarProdutos() {
     <section className="w-full animate-fade-in-soft">
       <div className="mb-8 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
         <div>
-          <span className="inline-block rounded-full bg-white px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-slate-500 shadow-sm">
-            Gestão de produtos
-          </span>
-
           <h1 className="mt-3 text-3xl font-black tracking-tight text-slate-800 sm:text-4xl">
             Produtos cadastrados
           </h1>
 
-          <p className="mt-2 max-w-2xl text-sm leading-6 text-slate-500">
-            Gerencie seu catálogo com uma visualização moderna, rápida e
-            organizada.
-          </p>
-        </div>
-
-        <div className="rounded-2xl border border-slate-200 bg-white px-4 py-3 shadow-sm">
-          <p className="text-xs font-medium uppercase tracking-[0.18em] text-slate-400">
-            Total exibido
-          </p>
-          <strong className="text-2xl font-black text-slate-800">
-            {produtosFiltrados.length}
-          </strong>
         </div>
       </div>
 
@@ -139,4 +131,4 @@ function ListarProdutos() {
   );
 }
 
-export default ListarProdutos;
+export default ProductPage;

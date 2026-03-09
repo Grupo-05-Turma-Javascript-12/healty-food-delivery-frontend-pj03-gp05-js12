@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { Outlet } from "react-router-dom";
-import AsideProdutos from "../components/product/productAside/AsideProdutos";
+import AsideProdutos from "../../components/product/productAside/ProductAside";
 
 export type ProdutosContextType = {
   precoBusca: string;
   categoriasSelecionadas: number[];
 };
 
-function ProdutosLayout() {
+function ProductsLayout() {
   const [precoBusca, setPrecoBusca] = useState<string>("");
   const [categoriasSelecionadas, setCategoriasSelecionadas] = useState<
     number[]
@@ -36,4 +36,4 @@ function ProdutosLayout() {
   );
 }
 
-export default ProdutosLayout;
+export default ProductsLayout;

@@ -1,9 +1,19 @@
-import { useContext } from "react";
-import { AuthContext } from "../../../contexts/authcontext/AuthContext";
+import { useContext, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../contexts/authcontext/AuthContext";
+import { ToastAlerta } from "../../utils/ToastAlert";
 
-function ProfileCard() {
+function ProfilePage() {
+  const navigate = useNavigate();
+  const { user, handleLogout } = useContext(AuthContext);
+  const token = user.token;
 
-  const { user } = useContext(AuthContext);
+  useEffect(() => {
+    if (token === "") {
+      ToastAlerta("Você precisa estar logado", "warn");
+      navigate("/");
+    }
+  }, [token]);
 
   return (
     <div className="flex flex-col gap-10">
@@ -38,4 +48,4 @@ function ProfileCard() {
   );
 }
 
-export default ProfileCard;
+export default ProfilePage;

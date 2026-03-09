@@ -14,8 +14,6 @@ function ProductForm() {
   const [categorias, setCategorias] = useState<Category[]>([]);
   const [loadingCategorias, setLoadingCategorias] = useState(true);
   const [loadingSubmit, setLoadingSubmit] = useState(false);
-
-  const [imagemPreview, setImagemPreview] = useState<string | null>(null);
   const [precoInput, setPrecoInput] = useState("");
 
   const [produto, setProduto] = useState<Product>({
@@ -117,6 +115,7 @@ function ProductForm() {
     setProduto({
       ...produto,
       [name]: value,
+      usuario: user
     });
   }
 
@@ -129,15 +128,6 @@ function ProductForm() {
       ...produto,
       categoria: categoriaSelecionada || null,
     });
-  }
-
-  function uploadImagem(e: React.ChangeEvent<HTMLInputElement>) {
-    const file = e.target.files?.[0];
-
-    if (!file) return;
-
-    const url = URL.createObjectURL(file);
-    setImagemPreview(url);
   }
 
   async function salvarProduto(e: React.FormEvent<HTMLFormElement>) {
@@ -188,28 +178,8 @@ function ProductForm() {
 
         <form
           onSubmit={salvarProduto}
-          className="bg-white p-8 rounded-2xl shadow-md border border-gray-200 grid grid-cols-1 md:grid-cols-3 gap-6"
+          className="bg-white p-8 rounded-2xl shadow-md border border-gray-200 grid grid-cols-1 gap-6"
         >
-          <div className="md:col-span-1 flex flex-col items-center gap-3">
-            <div className="w-full h-48 bg-gray-100 rounded-xl flex items-center justify-center overflow-hidden">
-              {imagemPreview ? (
-                <img
-                  src={imagemPreview}
-                  className="w-full h-full object-cover"
-                />
-              ) : (
-                <span className="text-gray-400 text-sm">
-                  Pré-visualização da imagem
-                </span>
-              )}
-            </div>
-
-            <label className="flex items-center gap-2 text-sm bg-gray-100 px-3 py-2 rounded-lg cursor-pointer hover:bg-gray-200 transition">
-              <UploadSimple size={18} />
-              Upload imagem
-              <input type="file" className="hidden" onChange={uploadImagem} />
-            </label>
-          </div>
 
           <div className="md:col-span-2 grid grid-cols-1 gap-4">
             <div className="flex flex-col gap-1">
