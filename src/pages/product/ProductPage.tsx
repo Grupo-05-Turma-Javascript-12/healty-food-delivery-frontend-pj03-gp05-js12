@@ -90,10 +90,6 @@ function ProductPage() {
             Produtos cadastrados
           </h1>
 
-          <p className="mt-2 max-w-2xl text-sm leading-6 text-slate-500">
-            Gerencie seu catálogo com uma visualização moderna, rápida e
-            organizada.
-          </p>
         </div>
       </div>
 

@@ -23,7 +23,7 @@ function CategoryAside() {
 
       <Link to="/categorias/cadastrar">
         <button className="w-full bg-lime-500 hover:bg-lime-600 transition text-white font-medium py-2.5 rounded-lg hover:cursor-pointer">
-          Adicionar Produto
+          Adicionar Categoria
         </button>
       </Link>
     </aside>

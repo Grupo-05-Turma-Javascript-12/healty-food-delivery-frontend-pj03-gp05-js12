@@ -22,7 +22,7 @@ function CategoryForm() {
   async function findCategoryById(id: string) {
     try {
       await findItems(
-        `/produtos/${id}`,
+        `/categorias/${id}`,
         (data: Category) => {
           setCategory(data);
         },
