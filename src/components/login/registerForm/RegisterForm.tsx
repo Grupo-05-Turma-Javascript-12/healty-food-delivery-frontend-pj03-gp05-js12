@@ -53,7 +53,7 @@ function RegisterForm() {
     <main className="grid grid-cols-1 lg:grid-cols-2 min-h-screen w-full font-sans bg-white">
       <section className="relative flex justify-center items-center p-6 sm:p-12 lg:p-20">
         <nav className="absolute top-4 left-8 sm:top-6 sm:left-12 lg:top-8 lg:left-24">
-          <Link to="/login" className="inline-flex items-center gap-2 px-6 py-1.5 border border-[#8fc549] text-[#8fc549] rounded-full hover:bg-[#8fc549] hover:text-white transition-all text-sm lowercase">
+          <Link to="/" className="inline-flex items-center gap-2 px-6 py-1.5 border border-[#8fc549] text-[#8fc549] rounded-full hover:bg-[#8fc549] hover:text-white transition-all text-sm lowercase">
             <span>←</span> voltar
           </Link>
         </nav>

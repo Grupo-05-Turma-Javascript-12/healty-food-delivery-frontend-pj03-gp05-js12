@@ -9,10 +9,10 @@ function Navbar() {
   const { user, handleLogout } = useContext(AuthContext)
   let component : ReactNode
 
-  function logout() {
+  function logout(): void {
+    navigate('/')
     handleLogout();
     ToastAlerta("O Usuário foi desconectado com sucesso!", "info");
-    navigate('/')
   }
 
   if (user.token !== "") {
@@ -65,8 +65,8 @@ function Navbar() {
             <span className="hover:text-amber-600">Perfil</span>
           </NavLink>
         </div>
-        <div className=" bg-amber-500 hover:bg-amber-700 py-1 px-7 rounded-2xl shadow text-slate-50 font-semibold transition-colors">
-          <button onClick={logout}>Sair</button>
+        <div className=" bg-amber-500 hover:bg-amber-700 py-1 px-7 rounded-2xl shadow text-slate-50 font-semibold transition-colors cursor-pointer">
+          <button onClick={() => logout()}>Sair</button>
         </div>
       </div>
     );
