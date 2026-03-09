@@ -329,9 +329,9 @@ function Home() {
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-[#64a30d]">
+                  <Link to="/axiom" className="hover:text-[#64a30d] cursor-pointer">
                     Axiom
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
