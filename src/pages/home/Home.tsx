@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import HomeNavBar from "../../components/homeNavBar/HomeNavBar";
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 
 function Home() {
   const features = [
@@ -26,7 +26,7 @@ function Home() {
     },
   ];
 
-  const container = {
+  const container: Variants = {
     hidden: {},
     show: {
       transition: {
@@ -35,7 +35,7 @@ function Home() {
     },
   };
 
-  const fadeUp = {
+  const fadeUp: Variants = {
     hidden: { opacity: 0, y: 40 },
     show: {
       opacity: 1,
@@ -44,7 +44,7 @@ function Home() {
     },
   };
 
-  const fadeRight = {
+  const fadeRight: Variants = {
     hidden: { opacity: 0, x: 60 },
     show: {
       opacity: 1,
@@ -58,10 +58,7 @@ function Home() {
       <HomeNavBar />
 
       <div className="w-full font-sans overflow-hidden">
-
-
         <section className="w-full min-h-screen lg:min-h-[650px] flex flex-col lg:flex-row">
-
           <motion.div
             variants={container}
             initial="hidden"
@@ -84,7 +81,10 @@ function Home() {
               por restaurantes especializados em alimentação saudável.
             </motion.p>
 
-            <motion.div variants={fadeUp} className="flex flex-wrap gap-4 items-center">
+            <motion.div
+              variants={fadeUp}
+              className="flex flex-wrap gap-4 items-center"
+            >
               <Link to="/login/cadastrar">
                 <motion.button
                   whileHover={{ scale: 1.06 }}
@@ -121,10 +121,8 @@ function Home() {
           </motion.div>
         </section>
 
-
         <section className="bg-white py-20 px-6 lg:px-24">
           <div className="max-w-7xl mx-auto">
-
             <motion.div
               variants={fadeUp}
               initial="hidden"
@@ -145,7 +143,6 @@ function Home() {
               viewport={{ once: true }}
               className="grid lg:grid-cols-2 gap-16 items-center"
             >
-
               <motion.div variants={fadeUp} className="space-y-6">
                 <p className="text-lg text-gray-600 max-w-md leading-relaxed">
                   Descubra pratos low carb, fitness, veganos e muito mais,
@@ -171,11 +168,9 @@ function Home() {
                   className="w-1/2 aspect-[4/5] object-cover rounded-sm"
                 />
               </motion.div>
-
             </motion.div>
           </div>
         </section>
-
 
         <section
           className="bg-[#64a30d] py-20 px-6 lg:px-24 text-white"
@@ -234,7 +229,6 @@ function Home() {
           </motion.div>
         </section>
 
-
         <section className="bg-white py-24 px-6 lg:px-24">
           <motion.div
             variants={container}
@@ -271,7 +265,6 @@ function Home() {
           </motion.div>
         </section>
 
-
         <section className="bg-gray-50 py-24 px-6 lg:px-24 text-center">
           <motion.div
             variants={fadeUp}
@@ -301,20 +294,17 @@ function Home() {
             </Link>
           </motion.div>
         </section>
-
       </div>
 
       <footer className="bg-[#8B3D00] text-white py-12 px-6 md:px-24">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-10">
             <div className="space-y-4">
-              <div className="flex items-center gap-2">
-                <img
-                  src="/nutribox/logo-white.svg"
-                  alt="Nutribox Logo"
-                  className="h-8 w-auto"
-                />
-              </div>
+              <img
+                src="/nutribox/logo-white.svg"
+                alt="Nutribox Logo"
+                className="h-8"
+              />
               <p className="text-sm opacity-90 leading-relaxed max-w-[200px]">
                 Restaurantes saudáveis conectados em um único hub.
               </p>
@@ -324,34 +314,22 @@ function Home() {
               <h3 className="font-bold text-lg">Páginas</h3>
               <ul className="space-y-2 text-sm opacity-90">
                 <li>
-                  <a
-                    href="#"
-                    className="hover:text-[#64a30d] transition-colors"
-                  >
+                  <a href="#" className="hover:text-[#64a30d]">
                     Início
                   </a>
                 </li>
                 <li>
-                  <a
-                    href="#"
-                    className="hover:text-[#64a30d] transition-colors"
-                  >
+                  <a href="#" className="hover:text-[#64a30d]">
                     A Nutribox
                   </a>
                 </li>
                 <li>
-                  <a
-                    href="#"
-                    className="hover:text-[#64a30d] transition-colors"
-                  >
+                  <a href="#" className="hover:text-[#64a30d]">
                     Produtos
                   </a>
                 </li>
                 <li>
-                  <a
-                    href="#"
-                    className="hover:text-[#64a30d] transition-colors"
-                  >
+                  <a href="#" className="hover:text-[#64a30d]">
                     Axiom
                   </a>
                 </li>
@@ -378,11 +356,11 @@ function Home() {
               </h3>
               <div className="bg-[#f97316] p-4 rounded-lg inline-block shadow-md">
                 <Link to="/axiom">
-                <img
-                  src="/axiom/axiom-footer.png"
-                  alt="Axiom Logo"
-                  className="h-20"
-                />
+                  <img
+                    src="/axiom/axiom-footer.png"
+                    alt="Axiom Logo"
+                    className="h-20"
+                  />
                 </Link>
               </div>
             </div>
