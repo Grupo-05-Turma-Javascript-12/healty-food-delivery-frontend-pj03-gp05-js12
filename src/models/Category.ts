@@ -1,6 +1,6 @@
-import type Produtos from "./Produto";
+import type Produtos from "./Product";
 
-export default interface Categoria {
+export default interface Category {
   id: number;
   nome: string;
   descricao: string;
