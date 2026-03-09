@@ -4,33 +4,14 @@ import ProfileAside from "../../components/profile/profileAside/ProfileAside";
 
 function ProfileLayout() {
 
-  const location = useLocation();
-
-  const getTitle = () => {
-    if (location.pathname.includes("editar")) {
-      return "Atualizar Perfil";
-    }
-    return "Perfil";
-  };
-
   return (
-    <div className="max-w-7xl mx-auto mt-12 grid grid-cols-12 gap-12">
-
-      
-      <div className="col-span-3 border-r pr-10">
-        <ProfileAside />
+    <div className="min-h-screen bg-[radial-gradient(circle_at_top_left,#ffffff_0%,#f8fafc_35%,#eef2f7_100%)]">
+      <div className="flex flex-col gap-8 p-6 lg:flex-row lg:p-10">
+        <ProfileAside/>
+        <div className="flex-1">
+          <Outlet/>
+        </div>
       </div>
-
-      <div className="col-span-9">
-
-        <h1 className="text-3xl font-semibold text-gray-800 mb-8">
-          {getTitle()}
-        </h1>
-
-        <Outlet />
-
-      </div>
-
     </div>
   );
 }

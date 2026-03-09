@@ -1,4 +1,4 @@
-import React, { useContext, type ReactNode } from 'react'
+import { useContext, type ReactNode } from 'react'
 import { Link, NavLink, useNavigate } from 'react-router-dom'
 import { AuthContext } from '../../contexts/authcontext/AuthContext'
 import { ToastAlerta } from '../../utils/ToastAlert'
@@ -17,7 +17,7 @@ function Navbar() {
 
   if (user.token !== "") {
     component = (
-      <div className="flex mx-35 my-10 items-center justify-between md:flex-row sm:flex-col flex-wrap sm:gap-2">
+      <div className="flex mx-35 my-10 items-center justify-between md:flex-row sm:flex-col flex-wrap sm:gap-2 flex-col gap-2">
         <div>
           <Link to="/produtos">
             <img
@@ -27,7 +27,7 @@ function Navbar() {
             />
           </Link>
         </div>
-        <div className="flex items-center md:flex-row  sm:flex-col sm:gap-4 md:gap-12 text-slate-900 flex-wrap">
+        <div className="flex items-center md:flex-row flex-col sm:flex-col sm:gap-4 md:gap-12 text-slate-900 flex-wrap">
           <NavLink
             to="/produtos"
             className={({ isActive }) =>
@@ -53,7 +53,7 @@ function Navbar() {
             <span className="hover:text-amber-600">Categorias</span>
           </NavLink>
           <NavLink
-            to="/usuario"
+            to="/perfil"
             className={({ isActive }) =>
               `transition-colors ${
                 isActive
