@@ -102,4 +102,4 @@ O projeto foi planejado e executado por: Ana Beatriz Monteiro, Andreza Luiza, CÃ
 
 **Axiom Software Developers**
 
-![Logo Axiom](./public/axiom-footer.png)
+![Logo Axiom](./public/axiom/axiom-footer.png)
