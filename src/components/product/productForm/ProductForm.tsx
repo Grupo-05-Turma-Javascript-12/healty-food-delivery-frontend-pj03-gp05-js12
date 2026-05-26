@@ -27,7 +27,6 @@ function ProductForm() {
     preco: 0,
     em_estoque: true,
     categoria: null,
-    usuario: null,
   });
 
   useEffect(() => {
@@ -95,7 +94,6 @@ function ProductForm() {
     setProduto((prev) => ({
       ...prev,
       [name]: value,
-      usuario: user,
     }));
   }
 
@@ -120,7 +118,8 @@ function ProductForm() {
 
     const payload = {
       ...produto,
-      categoria: { id: produto.categoria.id },
+      id: Number(produto.id),
+      categoria: { id: Number(produto.categoria.id) },
     };
 
     console.log("PAYLOAD ENVIADO:", payload);
