@@ -121,7 +121,6 @@ function ProductForm() {
     const payload = {
       ...produto,
       categoria: { id: produto.categoria.id },
-      usuario: { id: user.id },
     };
 
     console.log("PAYLOAD ENVIADO:", payload);
@@ -145,6 +144,8 @@ function ProductForm() {
       alert(JSON.stringify(error.response?.data, null, 2));
     } finally {
       setLoadingSubmit(false);
+      console.log("BODY RECEBIDO:", produto);
+      console.log("CATEGORIA:", produto.categoria);
     }
   }
 
