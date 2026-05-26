@@ -85,15 +85,13 @@ function ProductForm() {
   }
 
   function atualizarEstado(
-    e: React.ChangeEvent<
-      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) {
     const { name, value } = e.target;
 
     setProduto((prev) => ({
       ...prev,
-      [name]: value,
+      [name]: name === "preco" ? Number(value) : value,
     }));
   }
 
