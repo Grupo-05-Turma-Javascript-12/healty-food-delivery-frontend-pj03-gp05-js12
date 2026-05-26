@@ -1,4 +1,5 @@
 import axios from "axios";
+import type { AxiosRequestConfig } from "axios";
 
 export const api = axios.create({
   baseURL:import.meta.env.VITE_API_URL
@@ -14,21 +15,35 @@ export const loginUser = async (url: string, dados: Object, setDados: Function) 
   setDados(resposta.data);
 };
 
-export const findItems = async (url: string, setDados: Function, header: Object) => {
-  const resposta = await api.get(url, { ...header });
+export const findItems = async (
+  url: string,
+  setDados: Function,
+  header?: AxiosRequestConfig,
+) => {
+  const resposta = await api.get(url, header);
   setDados(resposta.data);
 };
 
-export const registerItem = async (url: string, dados: Object, setDados: Function, header: Object) => {
+export const registerItem = async (
+  url: string,
+  dados: Object,
+  setDados: Function,
+  header?: AxiosRequestConfig,
+) => {
   const resposta = await api.post(url, dados, header);
   setDados(resposta.data);
 };
 
-export const updateItem = async (url: string, dados: Object, setDados: Function, header: Object) => {
-  const resposta = await api.put(url, dados, { ...header });
-  setDados(resposta.data)
+export const updateItem = async (
+  url: string,
+  dados: Object,
+  setDados: Function,
+  header?: AxiosRequestConfig,
+) => {
+  const resposta = await api.put(url, dados, header);
+  setDados(resposta.data);
 };
 
-export const deleteItem = async (url: string, header: Object) => {
-  await api.delete(url, { ...header });
+export const deleteItem = async (url: string, header?: AxiosRequestConfig) => {
+  await api.delete(url, header);
 };
