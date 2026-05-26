@@ -115,12 +115,6 @@ function ProductForm() {
   }));
 }
 
-    setProduto({
-      ...produto,
-      [name]: value,
-      usuario: user
-    });
-  }
 
   function selecionarCategoria(e: React.ChangeEvent<HTMLSelectElement>) {
   const categoriaSelecionada = categorias.find(
