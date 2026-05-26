@@ -15,7 +15,7 @@ export const loginUser = async (url: string, dados: Object, setDados: Function) 
 };
 
 export const findItems = async (url: string, setDados: Function, header: Object) => {
-  const resposta = await api.get(url, header);
+  const resposta = await api.get(url, { ...header });
   setDados(resposta.data);
 };
 
@@ -25,10 +25,10 @@ export const registerItem = async (url: string, dados: Object, setDados: Functio
 };
 
 export const updateItem = async (url: string, dados: Object, setDados: Function, header: Object) => {
-  const resposta = await api.put(url, dados, header);
+  const resposta = await api.put(url, dados, { ...header });
   setDados(resposta.data)
 };
 
 export const deleteItem = async (url: string, header: Object) => {
-  await api.delete(url, header);
+  await api.delete(url, { ...header });
 };

@@ -115,9 +115,12 @@ function ProductForm() {
     }
 
     const payload = {
-      ...produto,
       id: Number(produto.id),
-      categoria: { id: Number(produto.categoria.id) },
+      nome: produto.nome,
+      descricao: produto.descricao,
+      preco: produto.preco,
+      em_estoque: produto.em_estoque,
+      categoriaId: Number(produto.categoria?.id),
     };
 
     console.log("PAYLOAD ENVIADO:", payload);
@@ -126,7 +129,7 @@ function ProductForm() {
       setLoadingSubmit(true);
 
       if (id) {
-        await updateItem(`/produtos`, payload, setProduto, {
+        await updateItem(`/produtos/${id}`, payload, setProduto, {
           headers: { Authorization: user.token },
         });
       } else {

@@ -61,7 +61,7 @@ function CategoryForm() {
       setLoadingSubmit(true);
 
       if (id !== undefined) {
-        await updateItem(`/categorias`, category, setCategory, {
+        await updateItem(`/categorias/${id}`, category, setCategory, {
           headers: { Authorization: user.token },
         });
       } else {
