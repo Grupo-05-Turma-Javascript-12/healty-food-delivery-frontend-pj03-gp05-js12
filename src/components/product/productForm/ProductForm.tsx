@@ -129,7 +129,7 @@ function ProductForm() {
       setLoadingSubmit(true);
 
       if (id) {
-        await updateItem(`/produtos/${id}`, payload, setProduto, {
+        await updateItem(`/produtos/`, payload, setProduto, {
           headers: { Authorization: user.token },
         });
       } else {
