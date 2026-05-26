@@ -1,10 +1,14 @@
-import { ArrowLeft, UploadSimple } from "phosphor-react";
+import { ArrowLeft } from "phosphor-react";
 import { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { AuthContext } from "../../../contexts/authcontext/AuthContext";
 import type Category from "../../../models/Category";
 import type Product from "../../../models/Product";
-import { findItems, registerItem, updateItem } from "../../../services/Service";
+import {
+  findItems,
+  registerItem,
+  updateItem,
+} from "../../../services/Service";
 
 function ProductForm() {
   const navigate = useNavigate();
@@ -28,51 +32,33 @@ function ProductForm() {
 
   useEffect(() => {
     buscarCategorias();
-
-    if (id !== undefined) {
-      buscarProdutoPorId(id);
-    }
+    if (id) buscarProdutoPorId(id);
   }, [id]);
 
-  function formatarMoeda(valor: string) {
-    const numeros = valor.replace(/\D/g, "");
-
+  function atualizarPreco(e: React.ChangeEvent<HTMLInputElement>) {
+    const numeros = e.target.value.replace(/\D/g, "");
     const numero = Number(numeros) / 100;
 
-    return numero.toLocaleString("pt-BR", {
-      style: "currency",
-      currency: "BRL",
-    });
+    setPrecoInput(
+      numero.toLocaleString("pt-BR", {
+        style: "currency",
+        currency: "BRL",
+      })
+    );
+
+    setProduto((prev) => ({ ...prev, preco: numero }));
   }
-
-  function atualizarPreco(e: React.ChangeEvent<HTMLInputElement>) {
-  const numeros = e.target.value.replace(/\D/g, "");
-  const numero = Number(numeros) / 100;
-
-  setPrecoInput(
-    numero.toLocaleString("pt-BR", {
-      style: "currency",
-      currency: "BRL",
-    })
-  );
-
-  setProduto((prev) => ({
-    ...prev,
-    preco: numero,
-  }));
-}
 
   async function buscarCategorias() {
     try {
       setLoadingCategorias(true);
-
       await findItems("/categorias", setCategorias, {
         headers: { Authorization: user.token },
       });
-
-      setLoadingCategorias(false);
     } catch (error) {
       console.log(error);
+    } finally {
+      setLoadingCategorias(false);
     }
   }
 
@@ -83,14 +69,12 @@ function ProductForm() {
         (data: Product) => {
           setProduto(data);
 
-          if (data.preco) {
-            setPrecoInput(
-              data.preco.toLocaleString("pt-BR", {
-                style: "currency",
-                currency: "BRL",
-              })
-            );
-          }
+          setPrecoInput(
+            Number(data.preco).toLocaleString("pt-BR", {
+              style: "currency",
+              currency: "BRL",
+            })
+          );
         },
         {
           headers: { Authorization: user.token },
@@ -102,30 +86,29 @@ function ProductForm() {
   }
 
   function atualizarEstado(
-  e: React.ChangeEvent<
-    HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-  >
-) {
-  const { name, value } = e.target;
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) {
+    const { name, value } = e.target;
 
-  setProduto((prev) => ({
-    ...prev,
-    [name]: name === "preco" ? Number(value) : value,
-    usuario: user,
-  }));
-}
-
+    setProduto((prev) => ({
+      ...prev,
+      [name]: value,
+      usuario: user,
+    }));
+  }
 
   function selecionarCategoria(e: React.ChangeEvent<HTMLSelectElement>) {
-  const categoriaSelecionada = categorias.find(
-    (cat) => cat.id === Number(e.target.value)
-  );
+    const categoriaSelecionada = categorias.find(
+      (cat) => Number(cat.id) === Number(e.target.value)
+    );
 
-  setProduto((prev) => ({
-    ...prev,
-    categoria: categoriaSelecionada || null,
-  }));
-}
+    setProduto((prev) => ({
+      ...prev,
+      categoria: categoriaSelecionada ?? null,
+    }));
+  }
 
   async function salvarProduto(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -135,15 +118,23 @@ function ProductForm() {
       return;
     }
 
+    const payload = {
+      ...produto,
+      categoria: { id: produto.categoria.id },
+      usuario: { id: user.id },
+    };
+
+    console.log("PAYLOAD ENVIADO:", payload);
+
     try {
       setLoadingSubmit(true);
 
-      if (id !== undefined) {
-        await updateItem(`/produtos`, produto, setProduto, {
+      if (id) {
+        await updateItem(`/produtos`, payload, setProduto, {
           headers: { Authorization: user.token },
         });
       } else {
-        await registerItem(`/produtos`, produto, setProduto, {
+        await registerItem(`/produtos`, payload, setProduto, {
           headers: { Authorization: user.token },
         });
       }
