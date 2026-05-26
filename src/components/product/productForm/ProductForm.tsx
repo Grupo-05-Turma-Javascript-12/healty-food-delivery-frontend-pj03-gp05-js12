@@ -46,19 +46,21 @@ function ProductForm() {
   }
 
   function atualizarPreco(e: React.ChangeEvent<HTMLInputElement>) {
-    const valorDigitado = e.target.value;
+  const numeros = e.target.value.replace(/\D/g, "");
+  const numero = Number(numeros) / 100;
 
-    const numeros = valorDigitado.replace(/\D/g, "");
+  setPrecoInput(
+    numero.toLocaleString("pt-BR", {
+      style: "currency",
+      currency: "BRL",
+    })
+  );
 
-    const numero = Number(numeros) / 100;
-
-    setPrecoInput(formatarMoeda(valorDigitado));
-
-    setProduto({
-      ...produto,
-      preco: numero,
-    });
-  }
+  setProduto((prev) => ({
+    ...prev,
+    preco: numero,
+  }));
+}
 
   async function buscarCategorias() {
     try {
@@ -100,17 +102,18 @@ function ProductForm() {
   }
 
   function atualizarEstado(
-    e: React.ChangeEvent<
-      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >
-  ) {
-    const { name, value } = e.target;
+  e: React.ChangeEvent<
+    HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+  >
+) {
+  const { name, value } = e.target;
 
-    if (name === "preco") {
-      const valor = Number(value);
-      setProduto({ ...produto, preco: valor });
-      return;
-    }
+  setProduto((prev) => ({
+    ...prev,
+    [name]: name === "preco" ? Number(value) : value,
+    usuario: user,
+  }));
+}
 
     setProduto({
       ...produto,
@@ -120,15 +123,15 @@ function ProductForm() {
   }
 
   function selecionarCategoria(e: React.ChangeEvent<HTMLSelectElement>) {
-    const categoriaSelecionada = categorias.find(
-      (cat) => cat.id === Number(e.target.value)
-    );
+  const categoriaSelecionada = categorias.find(
+    (cat) => cat.id === Number(e.target.value)
+  );
 
-    setProduto({
-      ...produto,
-      categoria: categoriaSelecionada || null,
-    });
-  }
+  setProduto((prev) => ({
+    ...prev,
+    categoria: categoriaSelecionada || null,
+  }));
+}
 
   async function salvarProduto(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -220,6 +223,7 @@ function ProductForm() {
                 <div className="h-10 bg-gray-200 animate-pulse rounded-lg"></div>
               ) : (
                 <select
+                  value={produto.categoria?.id || ""}
                   onChange={selecionarCategoria}
                   className="border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-green-500 outline-none"
                 >
