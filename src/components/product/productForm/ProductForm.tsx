@@ -141,7 +141,8 @@ function ProductForm() {
 
       navigate("/produtos");
     } catch (error) {
-      console.log(error);
+      console.log(error.response?.data || error);
+      alert(JSON.stringify(error.response?.data, null, 2));
     } finally {
       setLoadingSubmit(false);
     }
